@@ -1,0 +1,19 @@
+@import url('https://api.fontshare.com/v2/css?f[]=red-hat-display@800,900,300,700,400,500,600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    font-family: 'Red Hat Display', sans-serif;
+  }
+}
+
+@layer utilities {
+  .custom-container {
+    width: 70%;
+    margin: auto;
+  }
+}
