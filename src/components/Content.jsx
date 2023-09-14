@@ -1,26 +1,85 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
+import Magnetic from './Magnetic'
+import GsapMagnetic from './GsapMagnetic'
 
 const Content = () => {
-  const { scrollYProgress } = useScroll()
-  const scale = useTransform(scrollYProgress, [0, 1], [0, 1])
+  const slideUp = {
+    initial: {
+      y: '100%',
+    },
+    open: (i) => ({
+      y: 0,
+      transition: { duration: 0.5, delay: 0.02 * i },
+    }),
+    closed: {
+      y: '100%',
+      transition: { duration: 0.5 },
+    },
+  }
+
+  const opacity = {
+    initial: {
+      opacity: 0,
+    },
+    open: {
+      opacity: 1,
+      transition: { duration: 0.5 },
+    },
+    closed: {
+      opacity: 0,
+      transition: { duration: 0.5 },
+    },
+  }
+
+  const description =
+    'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequiminima, laudantium maiores velit sint sunt.'
+  const content = useRef(null)
+  const isInView = useInView(content)
 
   return (
-    <motion.div
-      style={{ scale }}
-      className='flex justify-center items-center h-screen custom-container'
+    <div
+      ref={content}
+      className='flex justify-center custom-container mt-[200px] py-[200px]'
     >
-      <motion.div style={{ scaleY: scrollYProgress }}>
-        <p className='text-3xl w-[30%] outline-dashed p-2'>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi
-          minima, laudantium maiores velit sint sunt.
+      <div className='flex'>
+        <p className='text-4xl w-[80%] p-2'>
+          {description.split(' ').map((word, index) => (
+            <span
+              key={index}
+              className='inline-flex relative overflow-hidden mr-3'
+            >
+              <motion.span
+                variants={slideUp}
+                custom={index}
+                animate={isInView ? 'open' : 'closed'}
+                key={index}
+              >
+                {word}
+              </motion.span>
+            </span>
+          ))}
         </p>
-      </motion.div>
-      <motion.div style={{ scaleY: scrollYProgress }}>
-        <p>
+      </div>
+      <div className='flex flex-col gap-10'>
+        <motion.p
+          variants={opacity}
+          animate={isInView ? 'open' : 'closed'}
+          className='text-[1.7rem]'
+        >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, quos.
-        </p>
-      </motion.div>
-    </motion.div>
+        </motion.p>
+        <GsapMagnetic>
+          <div
+            data-scroll
+            data-scroll-speed={0.1}
+            className='flex items-end cursor-pointer w-[180px] h-[180px]'
+          >
+            <p className='p-16 rounded-full bg-zinc-800 text-white'>About Me</p>
+          </div>
+        </GsapMagnetic>
+      </div>
+    </div>
   )
 }
 

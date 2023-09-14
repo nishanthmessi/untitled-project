@@ -1,10 +1,18 @@
 import { Outlet } from 'react-router-dom'
-import Navbar from './components/Navbar'
+import Navbar from './components/Navbar/Navbar'
 import { AnimatePresence } from 'framer-motion'
+import { useEffect } from 'react'
 
 const App = () => {
+  useEffect(() => {
+    ;async () => {
+      const LocomotiveScroll = (await import('locomotive-scroll')).default
+      const locomotiveScroll = new LocomotiveScroll()
+    }
+  }, [])
+
   return (
-    <div className=''>
+    <div className='no-scrollbar'>
       <Navbar />
       <AnimatePresence mode='wait'>
         <Outlet />
