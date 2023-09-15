@@ -12,6 +12,7 @@ const Navbar = () => {
   useEffect(() => {
     if (isActive) setIsActive(false)
   }, [])
+
   return (
     <>
       <div className='fixed right-0 z-10 p-[30px]'>

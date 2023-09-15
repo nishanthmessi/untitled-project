@@ -8,6 +8,7 @@
   html,
   body {
     font-family: 'Satoshi', sans-serif;
+    overflow: hidden;
   }
 }
 
@@ -15,8 +16,5 @@
   .custom-container {
     width: 70%;
     margin: auto;
-  }
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
   }
 }

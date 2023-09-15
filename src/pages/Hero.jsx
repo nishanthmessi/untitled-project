@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import transition from '../animations/transition'
 import Content from '../components/Content'
 import Socials from '../components/Socials'
+import Projects from '../components/Projects'
 
 const Hero = () => {
   const fadeInAnimation = {
@@ -38,6 +39,7 @@ const Hero = () => {
         </motion.h1>
       </motion.div>
       <Content />
+      <Projects />
     </>
   )
 }
