@@ -40,11 +40,10 @@ const NavSlider = () => {
             animate='enter'
             exit='exit'
             custom={index}
+            key={index}
           >
             <Magnetic>
-              <Link key={index} to={link.href}>
-                {link.title}
-              </Link>
+              <Link to={link.href}>{link.title}</Link>
             </Magnetic>
           </motion.div>
         ))}

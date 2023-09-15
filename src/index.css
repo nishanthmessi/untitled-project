@@ -1,4 +1,4 @@
-@import url('https://api.fontshare.com/v2/css?f[]=red-hat-display@800,900,300,700,400,500,600&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,300,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,7 +7,7 @@
 @layer base {
   html,
   body {
-    font-family: 'Red Hat Display', sans-serif;
+    font-family: 'Satoshi', sans-serif;
   }
 }
 
@@ -16,9 +16,6 @@
     width: 70%;
     margin: auto;
   }
-}
-
-@layer utilities {
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }

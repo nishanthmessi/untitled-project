@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Magnetic from './Magnetic'
 import GsapMagnetic from './GsapMagnetic'
@@ -9,12 +9,12 @@ const Content = () => {
       y: '100%',
     },
     open: (i) => ({
-      y: 0,
-      transition: { duration: 0.5, delay: 0.02 * i },
+      y: '0%',
+      transition: { duration: 1, delay: 0.03 * i, ease: [0.33, 1, 0.68, 1] },
     }),
     closed: {
       y: '100%',
-      transition: { duration: 0.5 },
+      transition: { duration: 1 },
     },
   }
 
@@ -35,7 +35,7 @@ const Content = () => {
   const description =
     'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequiminima, laudantium maiores velit sint sunt.'
   const content = useRef(null)
-  const isInView = useInView(content)
+  const isInView = useInView(content, { margin: '-10px' })
 
   return (
     <div
@@ -43,7 +43,7 @@ const Content = () => {
       className='flex justify-center custom-container mt-[200px] py-[200px]'
     >
       <div className='flex'>
-        <p className='text-4xl w-[80%] p-2'>
+        <motion.p className='text-4xl font-medium w-[80%] p-2'>
           {description.split(' ').map((word, index) => (
             <span
               key={index}
@@ -59,13 +59,13 @@ const Content = () => {
               </motion.span>
             </span>
           ))}
-        </p>
+        </motion.p>
       </div>
       <div className='flex flex-col gap-10'>
         <motion.p
           variants={opacity}
           animate={isInView ? 'open' : 'closed'}
-          className='text-[1.7rem]'
+          className='text-[1.4rem]'
         >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, quos.
         </motion.p>

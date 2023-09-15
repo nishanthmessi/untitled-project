@@ -5,14 +5,14 @@ import { useEffect } from 'react'
 
 const App = () => {
   useEffect(() => {
-    ;async () => {
+    ;(async () => {
       const LocomotiveScroll = (await import('locomotive-scroll')).default
       const locomotiveScroll = new LocomotiveScroll()
-    }
+    })()
   }, [])
 
   return (
-    <div className='no-scrollbar'>
+    <div className='no-scrollbar data-scroll-container'>
       <Navbar />
       <AnimatePresence mode='wait'>
         <Outlet />
