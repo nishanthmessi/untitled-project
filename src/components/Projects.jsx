@@ -38,19 +38,24 @@ const Projects = () => {
   return (
     <div className='flex flex-col custom-container'>
       <div className='flex justify-between gap-10 h-[200px]'>
-        <div ref={imageContainer} className='relative h-[100%] w-[80%]'>
+        <div
+          ref={imageContainer}
+          className='relative h-[100%] w-[80%] mt-[280px]'
+        >
           <img
-            className='fill object-cover'
+            className='fill object-cover shadow-xl shadow-zinc-400'
             alt='image'
             src={projects[selectedProject].src}
           />
         </div>
+
         <div className='flex flex-col relative mt-[200px]'>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
             obcaecati!
           </p>
         </div>
+
         <div className='items-end text-lg'>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium

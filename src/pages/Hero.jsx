@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion'
 import transition from '../animations/transition'
 import Content from '../components/Content'
-import Socials from '../components/Socials'
 import Projects from '../components/Projects'
+import ArrowDownLineIcon from 'remixicon-react/ArrowDownLineIcon'
+import Contact from '../components/Contact'
 
 const Hero = () => {
   const fadeInAnimation = {
@@ -18,9 +19,9 @@ const Hero = () => {
 
   return (
     <>
-      <motion.div className='flex flex-col justify-center items-center h-[100vh] bg-[#0f0f0f]'>
+      <motion.div className='flex flex-col justify-center items-center h-[100vh] bg-[#f7f5f5]'>
         <motion.h1
-          className='text-[8rem] font-extrabold text-center text-[#afa18f]'
+          className='text-[8rem] font-extrabold text-center text-[#333231]'
           variants={fadeInAnimation}
           initial='initial'
           whileInView='animate'
@@ -29,7 +30,7 @@ const Hero = () => {
           Hello There
         </motion.h1>
         <motion.h1
-          className='text-[8rem] font-extrabold text-center -mt-12 text-[#ec4e39]'
+          className='text-[14rem] font-extrabold text-center -mt-12 text-[#ec4e39]'
           variants={fadeInAnimation}
           initial='initial'
           whileInView='animate'
@@ -38,8 +39,10 @@ const Hero = () => {
           I'm Nisanth
         </motion.h1>
       </motion.div>
+
       <Content />
       <Projects />
+      <Contact />
     </>
   )
 }

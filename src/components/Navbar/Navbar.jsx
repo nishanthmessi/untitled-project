@@ -19,7 +19,7 @@ const Navbar = () => {
         <Magnetic>
           {!isActive ? (
             <div
-              className='p-4 transition ease-in delay-300 bg-[#afa18f] text-white rounded-full cursor-pointer'
+              className='p-4 transition ease-in delay-300 bg-zinc-800 text-white rounded-full cursor-pointer'
               onClick={() => setIsActive(!isActive)}
             >
               <Menu4LineIcon className='h-10 w-10' />
