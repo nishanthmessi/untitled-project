@@ -10,7 +10,7 @@ const Content = () => {
     },
     open: (i) => ({
       y: '0%',
-      transition: { duration: 1, delay: 0.03 * i, ease: [0.33, 1, 0.68, 1] },
+      transition: { duration: 1, delay: 0.02 * i, ease: [0.33, 1, 0.68, 1] },
     }),
     closed: {
       y: '100%',
@@ -38,16 +38,13 @@ const Content = () => {
   const isInView = useInView(content, { margin: '-10px' })
 
   return (
-    <div
-      ref={content}
-      className='flex justify-center custom-container mt-[200px] py-[200px]'
-    >
-      <div className='flex'>
+    <div className='flex justify-center custom-container mt-[200px] py-[200px]'>
+      <div className='flex' ref={content}>
         <motion.p className='text-4xl font-medium w-[80%] p-2'>
           {description.split(' ').map((word, index) => (
             <span
               key={index}
-              className='inline-flex relative overflow-hidden mr-3'
+              className='inline-flex relative overflow-hidden mr-3 pb-1'
             >
               <motion.span
                 variants={slideUp}

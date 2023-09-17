@@ -2,13 +2,18 @@ import { Outlet } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
 import { AnimatePresence } from 'framer-motion'
 import { useEffect } from 'react'
+import Lenis from '@studio-freight/lenis'
 
 const App = () => {
   useEffect(() => {
-    ;(async () => {
-      const LocomotiveScroll = (await import('locomotive-scroll')).default
-      const locomotiveScroll = new LocomotiveScroll()
-    })()
+    const lenis = new Lenis()
+
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
   }, [])
 
   return (

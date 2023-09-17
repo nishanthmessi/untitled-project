@@ -4,6 +4,7 @@ import Content from '../components/Content'
 import Projects from '../components/Projects'
 import ArrowDownLineIcon from 'remixicon-react/ArrowDownLineIcon'
 import Contact from '../components/Contact'
+import Works from '../components/Works'
 
 const Hero = () => {
   const fadeInAnimation = {
@@ -41,7 +42,8 @@ const Hero = () => {
       </motion.div>
 
       <Content />
-      <Projects />
+      {/* <Projects /> */}
+      <Works />
       <Contact />
     </>
   )
